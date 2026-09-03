@@ -258,7 +258,7 @@ export default function VideoSlider() {
                                             className="
                     inline-flex min-h-11 shrink-0 items-center gap-3
                     rounded-full border border-black/20 px-4
-                    text-xs font-medium
+                    text-xs font-medium bg-white
                     transition-colors hover:bg-neutral-950 hover:text-white
                     focus-visible:outline-none focus-visible:ring-2
                     focus-visible:ring-neutral-950 focus-visible:ring-offset-2

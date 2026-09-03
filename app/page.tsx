@@ -118,18 +118,21 @@ export default function HomePage() {
                         </Link>
 
                         <a
-                            href="#contact"
+                            href="https://wa.me/212661388591?text=Hello%21%20I%27d%20like%20to%20know%20more%20about%20your%20photography%20and%20video%20services."
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="Chat with us on WhatsApp (opens in a new tab)"
                             className="
-                    inline-flex min-h-11 items-center justify-center
-                    rounded-full border border-white/40 px-5
-                    text-xs font-medium tracking-wide
-                    transition-colors hover:bg-white hover:text-neutral-950
-                    focus-visible:outline-none focus-visible:ring-2
-                    focus-visible:ring-white focus-visible:ring-offset-4
-                    focus-visible:ring-offset-neutral-950
-                "
+        inline-flex min-h-11 items-center justify-center
+        rounded-full border border-white/40 px-5
+        text-xs font-medium tracking-wide
+        transition-colors hover:bg-white hover:text-neutral-950
+        focus-visible:outline-none focus-visible:ring-2
+        focus-visible:ring-white focus-visible:ring-offset-4
+        focus-visible:ring-offset-neutral-950
+    "
                         >
-                            Let’s talk ↗
+                            Let’s talk on WhatsApp ↗
                         </a>
                     </div>
 
@@ -273,15 +276,17 @@ export default function HomePage() {
 
                         <div className="mt-12 sm:mt-16">
                             <a
-                                href="#contact"
+                                href="https://wa.me/212661388591?text=Hello%21%20I%27d%20like%20to%20know%20more%20about%20your%20photography%20and%20video%20services."
+                                target="_blank"
+                                rel="noopener noreferrer"
                                 className="
-            group relative isolate flex w-full 
-            items-center justify-between gap-6 overflow-hidden
-            rounded-[2rem] bg-[#ff3b3c] p-6 text-neutral-950
-            sm:gap-10 sm:rounded-[2.5rem] sm:p-9
-            focus-visible:outline-none focus-visible:ring-2
-            focus-visible:ring-neutral-900 focus-visible:ring-offset-4
-        "
+        group relative isolate flex w-full
+        items-center justify-between gap-6 overflow-hidden
+        rounded-[2rem] bg-[#ff3b3c] p-6 text-neutral-950
+        sm:gap-10 sm:rounded-[2.5rem] sm:p-9
+        focus-visible:outline-none focus-visible:ring-2
+        focus-visible:ring-neutral-900 focus-visible:ring-offset-4
+    "
                             >
                                 <span
                                     aria-hidden="true"
@@ -370,7 +375,7 @@ export default function HomePage() {
                                 </h2>
                             </div>
 
-                            <p className="max-w-md text-base leading-relaxed lg:col-span-4 lg:pb-2">
+                            <p className="max-w-md text-base text-white leading-relaxed lg:col-span-4 lg:pb-2">
                                 The atmosphere. The movement. The moments
                                 between. We bring them together through
                                 thoughtful direction, considered sound, and an
@@ -395,7 +400,9 @@ export default function HomePage() {
 
                             <div className="lg:col-span-5 lg:justify-self-end">
                                 <a
-                                    href="#contact"
+                                    href="https://wa.me/212661388591?text=Hello%21%20I%27d%20like%20to%20know%20more%20about%20your%20photography%20and%20video%20services."
+                                    target="_blank"
+                                    rel="noopener noreferrer"
                                     className="
                             group inline-flex min-h-16 w-full
                             items-center justify-between gap-8
@@ -560,7 +567,9 @@ export default function HomePage() {
                                 </div>
 
                                 <a
-                                    href="#contact"
+                                    href="https://wa.me/212661388591?text=Hello%21%20I%27d%20like%20to%20know%20more%20about%20your%20photography%20and%20video%20services."
+                                    target="_blank"
+                                    rel="noopener noreferrer"
                                     className="
                             group flex min-h-16 items-center justify-between
                             gap-6 rounded-full bg-neutral-950
@@ -715,7 +724,9 @@ export default function HomePage() {
                             </div>
 
                             <a
-                                href="#contact"
+                                href="https://wa.me/212661388591?text=Hello%21%20I%27d%20like%20to%20know%20more%20about%20your%20photography%20and%20video%20services."
+                                target="_blank"
+                                rel="noopener noreferrer"
                                 className="
                         group inline-flex min-h-16 w-fit shrink-0
                         items-center justify-between gap-6 rounded-full
@@ -925,7 +936,9 @@ export default function HomePage() {
                             </p>
 
                             <a
-                                href="#contact"
+                                href="https://wa.me/212661388591?text=Hello%21%20I%27d%20like%20to%20know%20more%20about%20your%20photography%20and%20video%20services."
+                                target="_blank"
+                                rel="noopener noreferrer"
                                 className="
                         group mt-8 inline-flex min-h-16 items-center
                         justify-between gap-6 rounded-full
@@ -1045,7 +1058,9 @@ export default function HomePage() {
                                 </div>
 
                                 <a
-                                    href="#contact"
+                                    href="https://wa.me/212661388591?text=Hello%21%20I%27d%20like%20to%20know%20more%20about%20your%20photography%20and%20video%20services."
+                                    target="_blank"
+                                    rel="noopener noreferrer"
                                     className="
                             group mt-8 inline-flex min-h-14 items-center
                             justify-between gap-6 rounded-full
@@ -1122,7 +1137,9 @@ export default function HomePage() {
 
                             {/* Replace with your actual contact email. */}
                             <a
-                                href="mailto:hello@example.com"
+                                href="https://wa.me/212661388591?text=Hello%21%20I%27d%20like%20to%20know%20more%20about%20your%20photography%20and%20video%20services."
+                                target="_blank"
+                                rel="noopener noreferrer"
                                 className="
                         group mt-8 inline-flex min-h-16 items-center
                         justify-between gap-8 rounded-full
@@ -1167,19 +1184,173 @@ export default function HomePage() {
                                 Get in touch
                             </p>
 
-                            {/* Replace with your actual contact email. */}
                             <a
-                                href="mailto:hello@example.com"
+                                href="mailto:contact@pampprod.com"
                                 className="
-                        mt-4 inline-block break-all text-lg
-                        underline decoration-white/40 underline-offset-8
-                        transition-colors hover:decoration-white
-                        focus-visible:outline focus-visible:outline-2
-                        focus-visible:outline-offset-4 focus-visible:outline-white
-                    "
+        mt-4 flex min-h-11 w-fit items-center gap-3 text-lg
+        underline decoration-white/40 underline-offset-8
+        transition-colors hover:decoration-white
+        focus-visible:outline focus-visible:outline-2
+        focus-visible:outline-offset-4 focus-visible:outline-white
+    "
                             >
-                                hello@example.com
+                                <svg
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    strokeWidth={1.5}
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    aria-hidden="true"
+                                    className="size-5 shrink-0"
+                                >
+                                    <rect
+                                        x="3"
+                                        y="5"
+                                        width="18"
+                                        height="14"
+                                        rx="2"
+                                    />
+                                    <path d="m3 7 9 6 9-6" />
+                                </svg>
+
+                                <span className="break-all">
+                                    contact@pampprod.com
+                                </span>
                             </a>
+
+                            <a
+                                href="https://wa.me/212661388591?text=Hello%21%20I%27d%20like%20to%20know%20more%20about%20your%20photography%20and%20video%20services."
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                aria-label="WhatsApp: +212 661 388 591 (opens in a new tab)"
+                                className="
+        mt-4 flex min-h-11 w-fit items-center gap-3 text-lg
+        underline decoration-white/40 underline-offset-8
+        transition-colors hover:decoration-white
+        focus-visible:outline focus-visible:outline-2
+        focus-visible:outline-offset-4 focus-visible:outline-white
+    "
+                            >
+                                <svg
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    strokeWidth={1.5}
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    aria-hidden="true"
+                                    className="size-5 shrink-0"
+                                >
+                                    <path d="M21 11.5a9 9 0 0 1-13.4 7.85L3 21l1.65-4.6A9 9 0 1 1 21 11.5Z" />
+                                    <path d="m8 7 1.5-.5L11 9l-1 1a8 8 0 0 0 4 4l1-1 2.5 1.5L17 16c-.3.8-1.2 1.2-2 1-4.2-1-7-3.8-8-8-.2-.8.2-1.7 1-2Z" />
+                                </svg>
+
+                                <span>+212 661 388 591</span>
+                            </a>
+
+                            <a
+                                href="tel:+212661388591"
+                                className="
+        mt-4 inline-flex min-h-11 items-center gap-3 text-lg
+        underline decoration-white/40 underline-offset-8
+        transition-colors hover:decoration-white
+        focus-visible:outline focus-visible:outline-2
+        focus-visible:outline-offset-4 focus-visible:outline-white
+    "
+                            >
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    strokeWidth={1.5}
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    aria-hidden="true"
+                                    className="size-5 shrink-0"
+                                >
+                                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.69 2.79a2 2 0 0 1-.45 2.11L8.09 9.89a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.89.33 1.83.56 2.79.69A2 2 0 0 1 22 16.92Z" />
+                                </svg>
+
+                                <span>+212 661 388 591</span>
+                            </a>
+
+                            {/* -------------------------------------------------------------- */}
+                            <div className="flex items-center gap-4 mt-6">
+                                {/* Instagram */}
+                                <svg
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    strokeWidth={1.5}
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    aria-hidden="true"
+                                    className="size-8 shrink-0"
+                                >
+                                    <rect
+                                        x="3"
+                                        y="3"
+                                        width="18"
+                                        height="18"
+                                        rx="5"
+                                    />
+                                    <circle cx="12" cy="12" r="4" />
+                                    <circle
+                                        cx="17.5"
+                                        cy="6.5"
+                                        r="1"
+                                        fill="currentColor"
+                                        stroke="none"
+                                    />
+                                </svg>
+
+                                {/* Facebook */}
+                                <svg
+                                    viewBox="0 0 24 24"
+                                    fill="currentColor"
+                                    aria-hidden="true"
+                                    className="size-8 shrink-0"
+                                >
+                                    <path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047v-2.66c0-3.026 1.792-4.697 4.533-4.697 1.312 0 2.686.236 2.686.236v2.97h-1.513c-1.491 0-1.956.931-1.956 1.887v2.264h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073Z" />
+                                </svg>
+
+                                {/* X / Twitter */}
+                                <svg
+                                    viewBox="0 0 24 24"
+                                    fill="currentColor"
+                                    aria-hidden="true"
+                                    className="size-8 shrink-0"
+                                >
+                                    <path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.64 7.584H.47l8.6-9.835L0 1.154h7.594l5.243 6.932 6.064-6.933ZM17.61 20.644h2.039L6.486 3.24H4.298L17.61 20.644Z" />
+                                </svg>
+
+                                {/* YouTube */}
+                                <svg
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    strokeWidth={1.5}
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    aria-hidden="true"
+                                    className="size-8 shrink-0"
+                                >
+                                    <rect
+                                        x="2"
+                                        y="5"
+                                        width="20"
+                                        height="14"
+                                        rx="4"
+                                    />
+                                    <path
+                                        d="m10 9 5 3-5 3V9Z"
+                                        fill="currentColor"
+                                        stroke="none"
+                                    />
+                                </svg>
+                            </div>
                         </div>
 
                         <nav aria-label="Footer navigation">
