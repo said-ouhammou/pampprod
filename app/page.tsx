@@ -897,11 +897,11 @@ export default function HomePage() {
                                         </span>
 
                                         <div>
-                                            <h4 className="text-xl font-medium tracking-tight">
+                                            <h4 className="text-xl text-black font-medium tracking-tight">
                                                 {item.title}
                                             </h4>
 
-                                            <p className="mt-2 max-w-lg text-sm leading-relaxed sm:text-base">
+                                            <p className="mt-2 max-w-lg text-sm leading-relaxed text-gray-500 sm:text-base">
                                                 {item.description}
                                             </p>
                                         </div>
@@ -966,12 +966,12 @@ export default function HomePage() {
                 </div>
             </section>
 
-            <section
+            <div
                 aria-labelledby="photographer-heading"
                 className="overflow-hidden"
             >
-                <div className="rotated w-full bg-white py-16 font-sans text-[#ff3b3c] sm:py-24 lg:py-32">
-                    <div className="mx-auto container max-w-[1440px] px-5 sm:px-8 lg:px-12">
+                <div className=" w-full bg-white pb-16 font-sans text-[#ff3b3c]">
+                    <div className="mx-auto  max-w-[1440px] px-5 sm:px-8 lg:px-12">
                         <div className="grid gap-10 lg:grid-cols-12 lg:items-center lg:gap-16">
                             {/* Video — left */}
                             <figure className="min-w-0 lg:col-span-6">
@@ -1010,7 +1010,7 @@ export default function HomePage() {
                                     there’s a connection.
                                 </h2>
 
-                                <div className="mt-8 max-w-xl space-y-5 text-base leading-relaxed">
+                                <div className="mt-8 max-w-xl text-black space-y-5 text-base leading-relaxed">
                                     <p>
                                         What draws me to photography is the
                                         chance to notice things we might
@@ -1035,7 +1035,7 @@ export default function HomePage() {
                                     </p>
                                 </div>
 
-                                <div className="mt-8 border-t border-[#ff3b3c]/25 pt-6">
+                                <div className="mt-8 border-t text-gray-400 border-[#ff3b3c]/25 pt-6">
                                     <p className="text-xl font-semibold tracking-tight">
                                         Pampprod
                                     </p>
@@ -1084,7 +1084,7 @@ export default function HomePage() {
                         </div>
                     </div>
                 </div>
-            </section>
+            </div>
 
             <footer
                 id="contact"
