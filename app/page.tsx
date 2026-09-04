@@ -25,6 +25,7 @@ gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 export default function HomePage() {
     const containerRef = useRef<HTMLElement>(null);
+    const textMedia = gsap.matchMedia();
 
     useGSAP(
         () => {
@@ -68,6 +69,47 @@ export default function HomePage() {
                 });
             });
 
+            textMedia.add("(prefers-reduced-motion: no-preference)", () => {
+                const portfolio = root.querySelector<HTMLElement>("#portfolio");
+                if (!portfolio) return;
+
+                const heading = portfolio.querySelector("#experience-heading");
+                const lines = portfolio.querySelectorAll("[data-heading-line]");
+
+                if (heading && lines.length) {
+                    gsap.from(lines, {
+                        yPercent: 110,
+                        opacity: 0,
+                        duration: 1,
+                        stagger: 0.15,
+                        ease: "power3.out",
+                        scrollTrigger: {
+                            trigger: heading,
+                            pinnedContainer: portfolio,
+                            start: "top 90%",
+                            once: true,
+                        },
+                    });
+                }
+
+                portfolio
+                    .querySelectorAll<HTMLElement>("[data-text-reveal]")
+                    .forEach((element) => {
+                        gsap.from(element, {
+                            y: 24,
+                            opacity: 0,
+                            duration: 0.8,
+                            ease: "power3.out",
+                            scrollTrigger: {
+                                trigger: element,
+                                pinnedContainer: portfolio,
+                                start: "top 92%",
+                                once: true,
+                            },
+                        });
+                    });
+            });
+
             let refreshTimer: ReturnType<typeof setTimeout> | undefined;
 
             const observer = new ResizeObserver(() => {
@@ -87,6 +129,7 @@ export default function HomePage() {
             return () => {
                 observer.disconnect();
                 clearTimeout(refreshTimer);
+                textMedia.revert();
             };
         },
         {scope: containerRef},
@@ -106,7 +149,7 @@ export default function HomePage() {
                 >
                     <div className="bg-white py-16 rotated font-sans text-neutral-900 sm:py-24 lg:py-32">
                         <div className="mx-auto container  w-full max-w-[1440px] px-5 sm:px-8 lg:px-12 ">
-                            <header className="grid gap-8 lg:grid-cols-12 lg:items-end lg:gap-12">
+                            {/* <header className="grid gap-8 lg:grid-cols-12 lg:items-end lg:gap-12">
                                 <div className="lg:col-span-7">
                                     <p className="mb-6 text-xs font-medium uppercase tracking-[0.2em] text-neutral-500">
                                         The approach
@@ -137,6 +180,56 @@ export default function HomePage() {
                                         moments room to unfold.
                                     </p>
                                 </div>
+                            </header> */}
+
+                            <header className="grid gap-8 lg:grid-cols-12 lg:items-end lg:gap-12">
+                                <div className="lg:col-span-7">
+                                    <p
+                                        data-text-reveal
+                                        className="mb-6 text-xs font-medium uppercase tracking-[0.2em] text-neutral-500"
+                                    >
+                                        The approach
+                                    </p>
+
+                                    <h2
+                                        id="experience-heading"
+                                        className="max-w-3xl text-[clamp(3rem,6.5vw,6.5rem)] font-semibold leading-[0.95] tracking-[-0.055em] text-[#ff3b3c]"
+                                    >
+                                        <span className="block overflow-hidden pb-[0.12em]">
+                                            <span
+                                                data-heading-line
+                                                className="block"
+                                            >
+                                                Real moments.
+                                            </span>
+                                        </span>
+
+                                        <span className="block overflow-hidden pb-[0.12em]">
+                                            <span
+                                                data-heading-line
+                                                className="block"
+                                            >
+                                                Lasting impressions.
+                                            </span>
+                                        </span>
+                                    </h2>
+                                </div>
+
+                                <div className="max-w-lg space-y-4 text-base leading-relaxed text-neutral-600 lg:col-span-5 lg:pb-1">
+                                    <p data-text-reveal>
+                                        Every shoot starts with a conversation.
+                                        We take time to understand your story,
+                                        your vision, and how you want the
+                                        photographs to feel.
+                                    </p>
+
+                                    <p data-text-reveal>
+                                        From the first ideas to the final
+                                        selection, we offer clear guidance and a
+                                        relaxed experience—giving genuine
+                                        moments room to unfold.
+                                    </p>
+                                </div>
                             </header>
 
                             <SelectedWorkSlider />
@@ -148,7 +241,10 @@ export default function HomePage() {
                                     </p>
 
                                     <div className="lg:col-span-9">
-                                        <p className="max-w-4xl text-3xl font-medium leading-[1.2] tracking-tight sm:text-4xl lg:text-5xl">
+                                        <p
+                                            data-text-reveal
+                                            className="max-w-4xl text-3xl font-medium leading-[1.2] tracking-tight sm:text-4xl lg:text-5xl"
+                                        >
                                             A photograph should do more than
                                             show how a moment looked.
                                             <span className="text-neutral-500">
@@ -342,7 +438,7 @@ export default function HomePage() {
                     aria-labelledby="podcast-heading"
                     className="overflow-hidden"
                 >
-                    <div className="rotated w-full bg-[#182D27] py-16 font-sans text-white sm:py-24 lg:py-32">
+                    <div className="rotated w-full bg-[#242831] py-16 font-sans text-white sm:py-24 lg:py-32">
                         <div className="mx-auto max-w-[1440px] px-5 sm:px-8 lg:px-12">
                             <header className="flex flex-wrap items-center justify-between gap-4 border-b border-white/20 pb-5">
                                 <p className="text-xs font-medium uppercase tracking-[0.2em] text-[#D6E6A5]">
