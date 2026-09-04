@@ -1119,7 +1119,7 @@ export default function HomePage() {
                                         href="https://wa.me/212661388591?text=Hello%21%20I%27d%20like%20to%20know%20more%20about%20your%20photography%20and%20video%20services."
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="
+                                        className=" w-full
                             group mt-8 inline-flex min-h-14 items-center
                             justify-between gap-6 rounded-full
                             bg-[#ff3b3c] py-2 pl-6 pr-2

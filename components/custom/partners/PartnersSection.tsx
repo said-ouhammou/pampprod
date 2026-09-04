@@ -64,7 +64,7 @@ export default function PartnersSection() {
                                 id="partners-heading"
                                 className="text-2xl font-medium tracking-tight sm:text-3xl"
                             >
-                                Our partners
+                                Meet our partners
                                 <span className="text-[#ff3b3c]">.</span>
                             </h2>
 
