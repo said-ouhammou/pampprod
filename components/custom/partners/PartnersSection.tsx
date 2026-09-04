@@ -53,7 +53,7 @@ export default function PartnersSection() {
             className="overflow-hidden bg-white font-sans text-neutral-950"
         >
             <div className="pb-10 pt-2">
-                <div className="mx-auto max-w-[1440px] px-5 sm:px-8 lg:px-12">
+                <div className="mx-auto max-w-[1440px]">
                     <Carousel
                         opts={{align: "start", slidesToScroll: 1}}
                         aria-label="Our partners"
