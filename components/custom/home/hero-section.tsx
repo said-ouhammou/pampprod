@@ -8,8 +8,8 @@ export default function HeroSection() {
         >
             <div
                 aria-hidden="true"
-                className="absolute inset-0 -z-20 bg-cover bg-center bg-no-repeat"
-                style={{backgroundImage: 'url("/p.jpg")'}}
+                className="absolute inset-0 -z-20 bg-cover bg-top bg-no-repeat"
+                style={{backgroundImage: 'url("/hero.jpg")'}}
             />
 
             <div

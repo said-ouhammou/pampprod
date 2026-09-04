@@ -15,7 +15,6 @@ import {
     CarouselPrevious,
 } from "@/components/ui/carousel";
 import BackgroundMusic from "@/components/custom/partials/BackgroundMusic";
-import DocumenteryVideoSlider from "@/components/custom/documentery/DocumenteryVideoSlider";
 import PartnersSection from "@/components/custom/partners/PartnersSection";
 import HeroSection from "@/components/custom/home/hero-section";
 import DocumenterySection from "@/components/custom/documentery/documentery-section";
@@ -25,7 +24,7 @@ gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 export default function HomePage() {
     const containerRef = useRef<HTMLElement>(null);
-    const textMedia = gsap.matchMedia();
+    // const textMedia = gsap.matchMedia();
 
     useGSAP(
         () => {
@@ -69,46 +68,64 @@ export default function HomePage() {
                 });
             });
 
-            textMedia.add("(prefers-reduced-motion: no-preference)", () => {
-                const portfolio = root.querySelector<HTMLElement>("#portfolio");
-                if (!portfolio) return;
+            // textMedia.add("(prefers-reduced-motion: no-preference)", () => {
+            //     const textSections =
+            //         root.querySelectorAll<HTMLElement>(".animate-text");
 
-                const heading = portfolio.querySelector("#experience-heading");
-                const lines = portfolio.querySelectorAll("[data-heading-line]");
+            //     textSections.forEach((textSection) => {
+            //         // Only use pinnedContainer when this section is actually pinned.
+            //         const pinnedContainer = ScrollTrigger.getAll().some(
+            //             (trigger) => trigger.pin === textSection,
+            //         )
+            //             ? textSection
+            //             : undefined;
 
-                if (heading && lines.length) {
-                    gsap.from(lines, {
-                        yPercent: 110,
-                        opacity: 0,
-                        duration: 1,
-                        stagger: 0.15,
-                        ease: "power3.out",
-                        scrollTrigger: {
-                            trigger: heading,
-                            pinnedContainer: portfolio,
-                            start: "top 90%",
-                            once: true,
-                        },
-                    });
-                }
+            //         textSection
+            //             .querySelectorAll<HTMLElement>(
+            //                 "[data-animated-heading]",
+            //             )
+            //             .forEach((heading) => {
+            //                 const lines = heading.querySelectorAll<HTMLElement>(
+            //                     "[data-heading-line]",
+            //                 );
 
-                portfolio
-                    .querySelectorAll<HTMLElement>("[data-text-reveal]")
-                    .forEach((element) => {
-                        gsap.from(element, {
-                            y: 24,
-                            opacity: 0,
-                            duration: 0.8,
-                            ease: "power3.out",
-                            scrollTrigger: {
-                                trigger: element,
-                                pinnedContainer: portfolio,
-                                start: "top 92%",
-                                once: true,
-                            },
-                        });
-                    });
-            });
+            //                 if (!lines.length) return;
+
+            //                 gsap.from(lines, {
+            //                     yPercent: 110,
+            //                     opacity: 0,
+            //                     duration: 1,
+            //                     stagger: 0.15,
+            //                     ease: "power3.out",
+            //                     scrollTrigger: {
+            //                         trigger: heading,
+            //                         pinnedContainer,
+            //                         start: "top 90%",
+            //                         end: "bottom top",
+            //                         toggleActions: "play reverse play reverse",
+            //                     },
+            //                 });
+            //             });
+
+            //         textSection
+            //             .querySelectorAll<HTMLElement>("[data-text-reveal]")
+            //             .forEach((element) => {
+            //                 gsap.from(element, {
+            //                     y: 10,
+            //                     opacity: 0,
+            //                     duration: 0.6,
+            //                     ease: "power3.out",
+            //                     scrollTrigger: {
+            //                         trigger: element,
+            //                         pinnedContainer,
+            //                         start: "top 60%",
+            //                         end: "bottom top",
+            //                         toggleActions: "play reverse play reverse",
+            //                     },
+            //                 });
+            //             });
+            //     });
+            // });
 
             let refreshTimer: ReturnType<typeof setTimeout> | undefined;
 
@@ -129,7 +146,7 @@ export default function HomePage() {
             return () => {
                 observer.disconnect();
                 clearTimeout(refreshTimer);
-                textMedia.revert();
+                // textMedia.revert();
             };
         },
         {scope: containerRef},
@@ -144,55 +161,20 @@ export default function HomePage() {
 
                 <section
                     aria-labelledby="experience-heading"
-                    className="overflow-hidden "
+                    className="overflow-hidden animate-text"
                     id="portfolio"
                 >
                     <div className="bg-white py-16 rotated font-sans text-neutral-900 sm:py-24 lg:py-32">
                         <div className="mx-auto container  w-full max-w-[1440px] px-5 sm:px-8 lg:px-12 ">
-                            {/* <header className="grid gap-8 lg:grid-cols-12 lg:items-end lg:gap-12">
+                            <header className="grid gap-8 lg:grid-cols-12 lg:items-end lg:gap-12">
                                 <div className="lg:col-span-7">
                                     <p className="mb-6 text-xs font-medium uppercase tracking-[0.2em] text-neutral-500">
                                         The approach
                                     </p>
 
                                     <h2
-                                        id="experience-heading"
-                                        className="max-w-3xl text-[clamp(3rem,6.5vw,6.5rem)] font-semibold leading-[0.95] tracking-[-0.055em] text-[#ff3b3c]"
-                                    >
-                                        Real moments.
-                                        <br />
-                                        Lasting impressions.
-                                    </h2>
-                                </div>
-
-                                <div className="max-w-lg space-y-4 text-base leading-relaxed text-neutral-600 lg:col-span-5 lg:pb-1">
-                                    <p>
-                                        Every shoot starts with a conversation.
-                                        We take time to understand your story,
-                                        your vision, and how you want the
-                                        photographs to feel.
-                                    </p>
-
-                                    <p>
-                                        From the first ideas to the final
-                                        selection, we offer clear guidance and a
-                                        relaxed experience—giving genuine
-                                        moments room to unfold.
-                                    </p>
-                                </div>
-                            </header> */}
-
-                            <header className="grid gap-8 lg:grid-cols-12 lg:items-end lg:gap-12">
-                                <div className="lg:col-span-7">
-                                    <p
-                                        data-text-reveal
-                                        className="mb-6 text-xs font-medium uppercase tracking-[0.2em] text-neutral-500"
-                                    >
-                                        The approach
-                                    </p>
-
-                                    <h2
-                                        id="experience-heading"
+                                        data-animated-heading
+                                        id="heading"
                                         className="max-w-3xl text-[clamp(3rem,6.5vw,6.5rem)] font-semibold leading-[0.95] tracking-[-0.055em] text-[#ff3b3c]"
                                     >
                                         <span className="block overflow-hidden pb-[0.12em]">
@@ -338,7 +320,7 @@ export default function HomePage() {
 
                 <section
                     aria-labelledby="videography-heading"
-                    className="overflow-hidden"
+                    className="overflow-hidden animate-text"
                 >
                     <div className="rotated w-full bg-[#ff3b3c] py-16 font-sans text-neutral-950 sm:py-24 lg:py-32">
                         <div className="mx-auto max-w-[1440px] h-fit px-5 sm:px-8 lg:px-12">
@@ -349,6 +331,7 @@ export default function HomePage() {
                                     </p>
 
                                     <h2
+                                        data-animated-heading
                                         id="videography-heading"
                                         className="
                             text-[clamp(3rem,7.5vw,7.5rem)]
@@ -932,7 +915,7 @@ export default function HomePage() {
                 <footer
                     id="contact"
                     aria-labelledby="footer-heading"
-                    className="relative bg-[#ff3b3c] font-sans text-white"
+                    className="relative bg-[#ff3b3c] font-sans text-white animate-text"
                 >
                     <div className="mx-auto max-w-[1440px] px-5 pb-6 pt-16 sm:px-8 sm:pt-24 lg:px-12 lg:pt-32">
                         <div className="grid gap-10 lg:grid-cols-12 lg:items-end lg:gap-16">

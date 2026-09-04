@@ -4,7 +4,7 @@ export default function DocumenterySection() {
     return (
         <section
             aria-labelledby="documentary-heading"
-            className="overflow-hidden"
+            className="overflow-hidden animate-text"
         >
             <div className="rotated w-full bg-[#F3F1EB] py-16 font-sans text-neutral-950 sm:py-24 lg:py-32">
                 <div className="mx-auto max-w-[1440px] px-5 sm:px-8 lg:px-12">
@@ -21,15 +21,20 @@ export default function DocumenterySection() {
                     <div className="mt-10 grid gap-10 lg:mt-16 lg:grid-cols-12 lg:items-start lg:gap-12">
                         <div className="lg:col-span-7">
                             <h2
+                                data-animated-heading
                                 id="documentary-heading"
                                 className="
                                text-[clamp(3rem,7vw,7rem)]
                                font-medium leading-[0.95] tracking-[-0.06em]
                            "
                             >
-                                Real lives.
+                                <span data-heading-line>Real lives.</span>
+
                                 <br />
-                                <span className="text-neutral-500">
+                                <span
+                                    data-heading-line
+                                    className="text-neutral-500"
+                                >
                                     Deeper stories.
                                 </span>
                             </h2>
