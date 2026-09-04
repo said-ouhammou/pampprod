@@ -122,7 +122,7 @@ function PhotoCard({photograph}: {photograph: Photograph}) {
     );
 }
 
-export default function PinnedImages() {
+export default function SelectedWorkSlider() {
     const headingId = useId();
 
     return (
@@ -150,14 +150,14 @@ export default function PinnedImages() {
                         <CarouselPrevious
                             className="
                                 static size-11 translate-y-0 rounded-full
-                                border-neutral-200 bg-white text-neutral-900
+                                border-neutral-200 bg-[#ff3b3c] text-white hover:text-neutral-900
                                 shadow-none hover:bg-neutral-100
                             "
                         />
                         <CarouselNext
                             className="
                                 static size-11 translate-y-0 rounded-full
-                                border-neutral-200 bg-white text-neutral-900
+                                border-neutral-200 bg-[#ff3b3c] text-white hover:text-neutral-900
                                 shadow-none hover:bg-neutral-100
                             "
                         />
