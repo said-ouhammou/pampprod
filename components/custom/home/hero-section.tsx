@@ -4,7 +4,7 @@ export default function HeroSection() {
     return (
         <section
             aria-labelledby="hero-heading"
-            className="relative isolate min-h-svh overflow-hidden bg-neutral-950 font-sans text-white"
+            className="relative isolate min-h-screen overflow-hidden bg-neutral-950 font-sans text-white"
         >
             <div
                 aria-hidden="true"
