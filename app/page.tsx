@@ -4,9 +4,9 @@ import gsap from "gsap";
 import {ScrollTrigger} from "gsap/ScrollTrigger";
 import {useGSAP} from "@gsap/react";
 import {useRef} from "react";
-import SelectedWorkSlider from "@/components/custom/home/SelectedWorkSlider";
+import SelectedWorkSlider from "@/components/custom/partials/SelectedWorkSlider";
 import Link from "next/link";
-import VideoSlider from "@/components/custom/home/VideoSlider";
+import VideoSlider from "@/components/custom/partials/VideoSlider";
 import {
     Carousel,
     CarouselContent,
@@ -14,9 +14,12 @@ import {
     CarouselNext,
     CarouselPrevious,
 } from "@/components/ui/carousel";
-import BackgroundMusic from "@/components/custom/home/BackgroundMusic";
+import BackgroundMusic from "@/components/custom/partials/BackgroundMusic";
 import DocumenteryVideoSlider from "@/components/custom/documentery/DocumenteryVideoSlider";
 import PartnersSection from "@/components/custom/partners/PartnersSection";
+import HeroSection from "@/components/custom/home/hero-section";
+import DocumenterySection from "@/components/custom/documentery/documentery-section";
+import ReviewsSection from "@/components/custom/home/reviews-section";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
@@ -92,342 +95,9 @@ export default function HomePage() {
         <>
             <BackgroundMusic />
             <main ref={containerRef}>
-                <section
-                    aria-labelledby="hero-heading"
-                    className="relative isolate min-h-svh overflow-hidden bg-neutral-950 font-sans text-white"
-                >
-                    <div
-                        aria-hidden="true"
-                        className="absolute inset-0 -z-20 bg-cover bg-center bg-no-repeat"
-                        style={{backgroundImage: 'url("/p.jpg")'}}
-                    />
+                <HeroSection />
 
-                    <div
-                        aria-hidden="true"
-                        className="absolute inset-0 -z-10 bg-gradient-to-b from-black/45 via-black/15 to-black/80"
-                    />
-
-                    <div className="mx-auto flex min-h-svh max-w-[1440px] flex-col px-5 py-6 sm:px-8 sm:py-8 lg:px-12">
-                        <div className="flex items-center justify-between gap-6">
-                            <Link
-                                href="/"
-                                aria-label="Pampprod home"
-                                className="
-                    text-2xl font-semibold tracking-[-0.06em] sm:text-3xl
-                    focus-visible:outline-none focus-visible:ring-2
-                    focus-visible:ring-white focus-visible:ring-offset-4
-                    focus-visible:ring-offset-neutral-950
-                "
-                            >
-                                Pampprod
-                                <span className="text-[#ff3b3c]">.</span>
-                            </Link>
-
-                            <a
-                                href="https://wa.me/212661388591?text=Hello%21%20I%27d%20like%20to%20know%20more%20about%20your%20photography%20and%20video%20services."
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                aria-label="Chat with us on WhatsApp (opens in a new tab)"
-                                className="
-        inline-flex min-h-11 items-center justify-center
-        rounded-full border border-white/40 px-5
-        text-xs font-medium tracking-wide
-        transition-colors hover:bg-white hover:text-neutral-950
-        focus-visible:outline-none focus-visible:ring-2
-        focus-visible:ring-white focus-visible:ring-offset-4
-        focus-visible:ring-offset-neutral-950
-    "
-                            >
-                                Let’s talk on WhatsApp ↗
-                            </a>
-                        </div>
-
-                        <div className="flex flex-1 flex-col justify-end pb-10 pt-24 sm:pb-14 lg:pt-32">
-                            <p className="mb-6 text-xs font-medium uppercase tracking-[0.22em] text-white/75">
-                                Photography & visual storytelling
-                            </p>
-
-                            <h1
-                                id="hero-heading"
-                                className="
-                    max-w-5xl text-[clamp(3.5rem,9vw,9rem)]
-                    font-medium leading-[0.92] tracking-[-0.065em]
-                "
-                            >
-                                Moments fade.
-                                <br />
-                                <span className="text-[#ff3b3c]">
-                                    Feeling stays.
-                                </span>
-                            </h1>
-
-                            <div className="mt-10 flex flex-col gap-8 lg:mt-12 lg:flex-row lg:items-end lg:justify-between">
-                                <p className="max-w-md text-base leading-relaxed text-white/80 sm:text-lg">
-                                    Thoughtful photography for people, brands,
-                                    and the moments that matter. Captured with
-                                    intention. Remembered with feeling.
-                                </p>
-
-                                <a
-                                    href="#portfolio"
-                                    className="
-                        group inline-flex min-h-14 w-fit items-center gap-6
-                        rounded-full bg-white py-2 pl-6 pr-2
-                        text-sm font-semibold text-neutral-950
-                        transition-colors hover:bg-neutral-200
-                        focus-visible:outline-none focus-visible:ring-2
-                        focus-visible:ring-white focus-visible:ring-offset-4
-                        focus-visible:ring-offset-neutral-950
-                    "
-                                >
-                                    Explore the work
-                                    <span
-                                        aria-hidden="true"
-                                        className="flex size-10 items-center justify-center rounded-full bg-neutral-950 text-white"
-                                    >
-                                        <svg
-                                            viewBox="0 0 24 24"
-                                            fill="none"
-                                            stroke="currentColor"
-                                            strokeWidth={1.5}
-                                            strokeLinecap="round"
-                                            strokeLinejoin="round"
-                                            className="
-                                size-5 transition-transform duration-200
-                                group-hover:translate-y-0.5
-                                motion-reduce:transform-none
-                                motion-reduce:transition-none
-                            "
-                                        >
-                                            <path d="M12 5v14m-6-6 6 6 6-6" />
-                                        </svg>
-                                    </span>
-                                </a>
-                            </div>
-                        </div>
-
-                        <div className="flex items-center justify-between gap-4 border-t border-white/25 pt-5 text-[10px] font-medium uppercase tracking-[0.18em] text-white/65 sm:text-xs">
-                            <span>People. Stories. Perspectives.</span>
-                            <span>Pampprod Studio</span>
-                        </div>
-                    </div>
-                </section>
-
-                <section
-                    aria-labelledby="documentary-heading"
-                    className="overflow-hidden"
-                >
-                    <div className="rotated w-full bg-[#F3F1EB] py-16 font-sans text-neutral-950 sm:py-24 lg:py-32">
-                        <div className="mx-auto max-w-[1440px] px-5 sm:px-8 lg:px-12">
-                            <header className="flex items-center justify-between gap-6 border-b border-neutral-300 pb-5">
-                                <p className="text-xs font-semibold uppercase tracking-[0.2em]">
-                                    Documentary
-                                </p>
-
-                                <span className="text-xs uppercase tracking-[0.16em] text-neutral-500">
-                                    Pampprod Studio
-                                </span>
-                            </header>
-
-                            <div className="mt-10 grid gap-10 lg:mt-16 lg:grid-cols-12 lg:items-start lg:gap-12">
-                                <div className="lg:col-span-7">
-                                    <h2
-                                        id="documentary-heading"
-                                        className="
-                            text-[clamp(3rem,7vw,7rem)]
-                            font-medium leading-[0.95] tracking-[-0.06em]
-                        "
-                                    >
-                                        Real lives.
-                                        <br />
-                                        <span className="text-neutral-500">
-                                            Deeper stories.
-                                        </span>
-                                    </h2>
-                                </div>
-
-                                <div className="max-w-lg space-y-5 text-base leading-relaxed text-neutral-600 lg:col-span-5 lg:pt-2">
-                                    <p>
-                                        Every story begins with listening. We
-                                        take time to understand the people,
-                                        places, and experiences behind what you
-                                        see.
-                                    </p>
-
-                                    <p>
-                                        Through thoughtful interviews and
-                                        patient observation, we create
-                                        documentaries that make room for
-                                        complexity, preserve individual voices,
-                                        and bring audiences closer.
-                                    </p>
-                                </div>
-                            </div>
-
-                            <div className="mt-12 grid gap-8 lg:mt-20 lg:grid-cols-12 lg:items-stretch lg:gap-12">
-                                <figure className="lg:col-span-8">
-                                    <div className="relative aspect-video overflow-hidden rounded-2xl bg-neutral-950">
-                                        <iframe
-                                            src="https://www.youtube-nocookie.com/embed/K2jD5m1xAJ8"
-                                            title="Pampprod documentary"
-                                            loading="lazy"
-                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                            allowFullScreen
-                                            referrerPolicy="strict-origin-when-cross-origin"
-                                            className="absolute inset-0 size-full border-0"
-                                        />
-                                    </div>
-
-                                    <figcaption className="mt-4 text-xs uppercase tracking-[0.16em] text-neutral-500">
-                                        People and places, seen up close.
-                                    </figcaption>
-                                </figure>
-
-                                <div className="flex flex-col justify-between gap-10 lg:col-span-4">
-                                    <div>
-                                        <p className="text-xs font-semibold uppercase tracking-[0.18em] text-neutral-500">
-                                            Our approach
-                                        </p>
-
-                                        <div className="mt-6 space-y-6">
-                                            {[
-                                                {
-                                                    number: "01",
-                                                    title: "Listen first",
-                                                    description:
-                                                        "Understand the context and build trust before the camera starts rolling.",
-                                                },
-                                                {
-                                                    number: "02",
-                                                    title: "Stay curious",
-                                                    description:
-                                                        "Follow the details, ask thoughtful questions, and leave room for the unexpected.",
-                                                },
-                                                {
-                                                    number: "03",
-                                                    title: "Edit with care",
-                                                    description:
-                                                        "Shape a compelling narrative while respecting the people at its heart.",
-                                                },
-                                            ].map((item) => (
-                                                <div
-                                                    key={item.number}
-                                                    className="flex gap-5 border-t border-neutral-300 pt-5"
-                                                >
-                                                    <span className="pt-1 text-xs tabular-nums text-neutral-500">
-                                                        {item.number}
-                                                    </span>
-
-                                                    <div>
-                                                        <h3 className="text-lg font-medium tracking-tight">
-                                                            {item.title}
-                                                        </h3>
-
-                                                        <p className="mt-2 text-sm leading-relaxed text-neutral-600">
-                                                            {item.description}
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            ))}
-                                        </div>
-                                    </div>
-
-                                    <a
-                                        href="https://wa.me/212661388591?text=Hello%21%20I%27d%20like%20to%20know%20more%20about%20your%20photography%20and%20video%20services."
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="
-                            group flex min-h-16 items-center justify-between
-                            gap-6 rounded-full bg-neutral-950
-                            py-2 pl-6 pr-2 text-sm font-medium text-white
-                            transition-colors hover:bg-neutral-800
-                            focus-visible:outline-none focus-visible:ring-2
-                            focus-visible:ring-neutral-950
-                            focus-visible:ring-offset-4
-                            focus-visible:ring-offset-[#F3F1EB]
-                        "
-                                    >
-                                        Tell us your story
-                                        <span
-                                            aria-hidden="true"
-                                            className="flex size-12 shrink-0 items-center justify-center rounded-full bg-[#ff3b3c] text-neutral-950"
-                                        >
-                                            <svg
-                                                viewBox="0 0 24 24"
-                                                fill="none"
-                                                stroke="currentColor"
-                                                strokeWidth={1.5}
-                                                strokeLinecap="round"
-                                                strokeLinejoin="round"
-                                                className="
-                                    size-6 transition-transform duration-200
-                                    group-hover:-translate-y-0.5
-                                    group-hover:translate-x-0.5
-                                    motion-reduce:transform-none
-                                    motion-reduce:transition-none
-                                "
-                                            >
-                                                <path d="M7 17 17 7M7 7h10v10" />
-                                            </svg>
-                                        </span>
-                                    </a>
-                                </div>
-                            </div>
-                            <DocumenteryVideoSlider />
-
-                            <div className="mt-10 flex flex-col gap-6 rounded-2xl p-6 sm:flex-row sm:items-center sm:justify-between sm:p-8">
-                                <div className="max-w-xl">
-                                    <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#ff3b3c]">
-                                        Every story starts somewhere
-                                    </p>
-
-                                    <h3 className="mt-3 text-2xl font-medium leading-tight tracking-tight text-neutral-950">
-                                        What’s the story you want to tell?
-                                    </h3>
-
-                                    <p className="mt-2 text-sm leading-relaxed text-neutral-600">
-                                        Share an idea, a person, or a place.
-                                        Let’s explore what it could become.
-                                    </p>
-                                </div>
-
-                                <a
-                                    href="https://wa.me/212661388591?text=Hello%21%20I%27d%20like%20to%20discuss%20a%20documentary%20project."
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="
-            group inline-flex min-h-12 w-fit shrink-0 items-center
-            justify-center gap-4 rounded-full bg-[#ff3b3c]
-            px-6 py-3 text-sm font-medium text-white
-            focus-visible:outline-none focus-visible:ring-2
-            focus-visible:ring-[#ff3b3c] focus-visible:ring-offset-4
-        "
-                                >
-                                    Discuss your project
-                                    <svg
-                                        viewBox="0 0 24 24"
-                                        fill="none"
-                                        stroke="currentColor"
-                                        strokeWidth={1.5}
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                        aria-hidden="true"
-                                        className="
-                size-5 transition-transform duration-200
-                group-hover:-translate-y-0.5 group-hover:translate-x-0.5
-                motion-reduce:transform-none motion-reduce:transition-none
-            "
-                                    >
-                                        <path d="M7 17 17 7M7 7h10v10" />
-                                    </svg>
-                                    <span className="sr-only">
-                                        on WhatsApp (opens in a new tab)
-                                    </span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </section>
+                <DocumenterySection />
 
                 <section
                     aria-labelledby="experience-heading"
@@ -1036,12 +706,12 @@ export default function HomePage() {
                     </div>
                 </section>
 
-                <div
+                <section
                     aria-labelledby="photographer-heading"
                     className="overflow-hidden"
                 >
-                    <div className=" w-full bg-white pb-16 font-sans text-[#ff3b3c]">
-                        <div className="mx-auto  max-w-[1440px] px-5 sm:px-8 lg:px-12">
+                    <div className=" w-full rotated pt-16 bg-white pb-16 font-sans text-[#ff3b3c]">
+                        <div className="mx-auto container  max-w-[1440px] px-5 sm:px-8 lg:px-12">
                             <div className="grid gap-10 lg:grid-cols-12 lg:items-center lg:gap-16">
                                 {/* Video — left */}
                                 <figure className="min-w-0 lg:col-span-6">
@@ -1157,7 +827,9 @@ export default function HomePage() {
                             </div>
                         </div>
                     </div>
-                </div>
+                </section>
+
+                <ReviewsSection />
 
                 <PartnersSection />
 
