@@ -60,7 +60,7 @@ export default function DocumenterySection() {
                         <figure className="lg:col-span-8">
                             <div className="relative aspect-video overflow-hidden rounded-2xl bg-neutral-950">
                                 <iframe
-                                    src="https://www.youtube-nocookie.com/embed/K2jD5m1xAJ8"
+                                    src="https://www.youtube.com/embed/PpjTeM3AL4c?si=R5RG2wqOdPNK3HbW"
                                     title="Pampprod documentary"
                                     loading="lazy"
                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
