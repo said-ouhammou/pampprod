@@ -16,6 +16,7 @@ import {
 } from "@/components/ui/carousel";
 import BackgroundMusic from "@/components/custom/home/BackgroundMusic";
 import DocumenteryVideoSlider from "@/components/custom/documentery/DocumenteryVideoSlider";
+import PartnersSection from "@/components/custom/partners/PartnersSection";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
@@ -1157,6 +1158,8 @@ export default function HomePage() {
                         </div>
                     </div>
                 </div>
+
+                <PartnersSection />
 
                 <footer
                     id="contact"
