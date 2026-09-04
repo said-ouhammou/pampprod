@@ -133,7 +133,7 @@ export default function BackgroundMusic() {
         <div className="pamp-music">
             <audio
                 ref={audioRef}
-                src="/audio.mp4"
+                src="/bg-audio.m4a"
                 loop
                 autoPlay
                 playsInline
