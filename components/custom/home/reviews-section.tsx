@@ -55,7 +55,7 @@ export default function ReviewsSection() {
     return (
         <section
             aria-labelledby={headingId}
-            className="overflow-hidden bg-white"
+            className="overflow-hidden bg-white min-h-screen"
         >
             <div className="rotated bg-white py-16 font-sans text-neutral-950 sm:py-24">
                 <div className="mx-auto max-w-[1440px] px-5 sm:px-8 lg:px-12">

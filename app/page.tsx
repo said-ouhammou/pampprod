@@ -788,7 +788,7 @@ export default function HomePage() {
                     aria-labelledby="photographer-heading"
                     className="overflow-hidden"
                 >
-                    <div className=" w-full rotated pt-16 bg-white pb-16 font-sans text-[#ff3b3c]">
+                    <div className=" w-full min-h-screen rotated pt-16 bg-white pb-16 font-sans text-[#ff3b3c]">
                         <div className="mx-auto container  max-w-[1440px] px-5 sm:px-8 lg:px-12">
                             <div className="grid gap-10 lg:grid-cols-12 lg:items-center lg:gap-16">
                                 {/* Video — left */}
