@@ -15,7 +15,6 @@ import {
     CarouselPrevious,
 } from "@/components/ui/carousel";
 import BackgroundMusic from "@/components/custom/partials/BackgroundMusic";
-import PartnersSection from "@/components/custom/partners/PartnersSection";
 import HeroSection from "@/components/custom/home/hero-section";
 import DocumenterySection from "@/components/custom/documentery/documentery-section";
 import ReviewsSection from "@/components/custom/home/reviews-section";
@@ -909,8 +908,6 @@ export default function HomePage() {
                 </section>
 
                 <ReviewsSection />
-
-                <PartnersSection />
 
                 <footer
                     id="contact"

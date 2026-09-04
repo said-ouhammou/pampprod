@@ -7,6 +7,7 @@ import {
     CarouselNext,
     CarouselPrevious,
 } from "@/components/ui/carousel";
+import PartnersSection from "../partners/PartnersSection";
 
 const reviews = [
     {
@@ -189,6 +190,8 @@ export default function ReviewsSection() {
                     </Carousel>
                 </div>
             </div>
+
+            <PartnersSection />
         </section>
     );
 }
