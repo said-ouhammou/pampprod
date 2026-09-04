@@ -95,6 +95,9 @@ export default function BackgroundMusic() {
         if (!audio) return;
 
         setError("");
+
+        // Muted autoplay is running: the first press turns the sound on
+        // instead of stopping the track.
         if (isMuted && !audio.paused) {
             audio.muted = false;
             setIsMuted(false);
@@ -200,9 +203,32 @@ export default function BackgroundMusic() {
             </button>
 
             {error && (
-                <p role="status" className="pamp-music-message">
-                    {error}
-                </p>
+                <div role="status" className="pamp-music-message">
+                    <span className="relative flex size-3">
+                        <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#ff3b3c] opacity-75"></span>
+                        <span className="relative inline-flex size-3 rounded-full bg-[#ff3b3c]"></span>
+                    </span>
+                    <p>{error}</p>
+
+                    <button
+                        type="button"
+                        onClick={() => setError("")}
+                        aria-label="Dismiss message"
+                        title="Dismiss"
+                        className="pamp-music-dismiss"
+                    >
+                        <svg
+                            viewBox="0 0 12 12"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="1.6"
+                            strokeLinecap="round"
+                            aria-hidden="true"
+                        >
+                            <path d="M2.5 2.5 9.5 9.5M9.5 2.5 2.5 9.5" />
+                        </svg>
+                    </button>
+                </div>
             )}
         </div>
     );
