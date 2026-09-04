@@ -188,10 +188,10 @@ export default function ReviewsSection() {
                             ))}
                         </CarouselContent>
                     </Carousel>
+
+                    <PartnersSection />
                 </div>
             </div>
-
-            <PartnersSection />
         </section>
     );
 }
