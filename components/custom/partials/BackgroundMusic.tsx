@@ -5,12 +5,23 @@ import {useEffect, useRef, useState} from "react";
 
 const UNLOCK_EVENTS = ["pointerdown", "keydown", "touchstart"] as const;
 
+/** How long the "playing silently" hint stays on screen. */
+const HINT_TIMEOUT = 6000;
+
 export default function BackgroundMusic() {
+    const toggleRef = useRef<HTMLButtonElement>(null);
     const audioRef = useRef<HTMLAudioElement>(null);
-    const [isPaused, setIsPaused] = useState(true);
     const [isPlaying, setIsPlaying] = useState(false);
     const [isMuted, setIsMuted] = useState(false);
     const [error, setError] = useState("");
+    const [hint, setHint] = useState("");
+
+    useEffect(() => {
+        if (!hint) return;
+
+        const timer = setTimeout(() => setHint(""), HINT_TIMEOUT);
+        return () => clearTimeout(timer);
+    }, [hint]);
 
     useEffect(() => {
         const audio = audioRef.current;
@@ -31,14 +42,23 @@ export default function BackgroundMusic() {
             }
         }
 
-        function unlock() {
+        function unlock(event: Event) {
             const el = audioRef.current;
+
+            // Presses on the toggle are the button's job. Running both
+            // handlers would unmute here and then immediately pause there.
+            // The dismiss button is deliberately not excluded: closing the
+            // hint is still a gesture we can unlock on.
+            if (toggleRef.current?.contains(event.target as Node)) return;
+
             removeUnlockListeners();
             if (!el) return;
 
             el.muted = false;
             setIsMuted(false);
             setError("");
+            setHint("");
+
             void el.play().catch(() => {
                 setError("Press play to start the background music.");
             });
@@ -64,7 +84,9 @@ export default function BackgroundMusic() {
                 el.muted = true;
                 await el.play();
                 if (cancelled) return;
+
                 setIsMuted(true);
+                setHint("Music is playing silently. Turn on the sound.");
                 addUnlockListeners();
             } catch (cause) {
                 if (cancelled) return;
@@ -90,71 +112,82 @@ export default function BackgroundMusic() {
         if (!audio) return;
 
         setError("");
+        setHint("");
 
-        // Muted autoplay is running: the first press turns the sound on
-        // instead of stopping the track.
-        if (isMuted && !audio.paused) {
+        // Playing and audible → pause.
+        if (!audio.paused && !audio.muted) {
+            audio.pause();
+            return;
+        }
+
+        // Muted autoplay is running → this press just turns the sound on.
+        if (!audio.paused && audio.muted) {
             audio.muted = false;
             setIsMuted(false);
             return;
         }
 
-        if (!audio.paused) {
-            audio.pause();
-            return;
-        }
-
+        // Paused → start it.
         try {
             audio.muted = false;
             setIsMuted(false);
             await audio.play();
         } catch (cause) {
-            if (cause instanceof Error && cause.name === "AbortError") {
-                return;
-            }
-
+            if (cause instanceof Error && cause.name === "AbortError") return;
             setError("The track could not start. Try again.");
         }
     }
 
     const isAudible = isPlaying && !isMuted;
-    const label = isMuted
-        ? "Turn on background music"
-        : isPaused
-          ? "Play background music"
-          : "Pause background music";
+
+    // Pressing the button produces audible music whether it is currently
+    // paused or muted, so those two states share one label.
+    const label = isAudible
+        ? "Turn off background music"
+        : "Turn on background music";
+
+    const message = error || hint;
+    const dotColor = error ? "bg-[#ff3b3c]" : "bg-neutral-400";
 
     return (
         <div className="pamp-music">
             <audio
                 ref={audioRef}
-                src="/bg-audio.m4a"
                 loop
                 playsInline
-                preload="auto"
-                onPlay={() => setIsPaused(false)}
+                preload="metadata"
                 onPlaying={() => setIsPlaying(true)}
                 onWaiting={() => setIsPlaying(false)}
-                onVolumeChange={() =>
-                    setIsMuted(Boolean(audioRef.current?.muted))
-                }
-                onPause={() => {
-                    setIsPaused(true);
-                    setIsPlaying(false);
+                onVolumeChange={() => {
+                    setIsMuted(Boolean(audioRef.current?.muted));
                 }}
+                onPause={() => setIsPlaying(false)}
                 onError={() => {
-                    const mediaError = audioRef.current?.error;
+                    const el = audioRef.current;
 
-                    setIsPaused(true);
+                    // A failed <source> surfaces here too. Only report a real
+                    // failure, meaning every source was exhausted.
+                    if (!el || el.networkState !== el.NETWORK_NO_SOURCE) return;
+
                     setIsPlaying(false);
+                    setIsMuted(false);
 
                     setError(
-                        `The audio file did not load (code ${mediaError?.code ?? "unknown"}). Check /audio.m4a and its format.`,
+                        `The background music could not load (code ${
+                            el.error?.code ?? "unknown"
+                        }).`,
                     );
                 }}
-            />
+            >
+                {/* Main audio */}
+                <source src="/bg-audio.m4a" type="audio/mp4" />
+                {/* Fallback audio */}
+                <source src="/bg-audio.mp3" type="audio/mpeg" />
+                Your browser does not support audio playback.
+            </audio>
 
             <button
+                ref={toggleRef}
                 type="button"
                 onClick={toggleMusic}
                 aria-label={label}
@@ -181,32 +214,49 @@ export default function BackgroundMusic() {
 
                 <svg
                     viewBox="0 0 24 24"
-                    fill="currentColor"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth={1.6}
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                     aria-hidden="true"
                     className="pamp-music-glyph"
                 >
-                    {isPaused || isMuted ? (
-                        <path d="M8 5v14l11-7L8 5Z" />
+                    <path d="M11 5 6 9H3v6h3l5 4V5Z" />
+
+                    {isAudible ? (
+                        <>
+                            <path d="M15.5 8.5a5 5 0 0 1 0 7" />
+                            <path d="M18.5 6a9 9 0 0 1 0 12" />
+                        </>
                     ) : (
                         <>
-                            <rect x="6" y="4" width="4" height="16" rx="1" />
-                            <rect x="14" y="4" width="4" height="16" rx="1" />
+                            <path d="m16 9 5 6" />
+                            <path d="m21 9-5 6" />
                         </>
                     )}
                 </svg>
             </button>
 
-            {error && (
+            {message && (
                 <div role="status" className="pamp-music-message">
-                    <span className="relative flex size-3">
-                        <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#ff3b3c] opacity-75"></span>
-                        <span className="relative inline-flex size-3 rounded-full bg-[#ff3b3c]"></span>
+                    <span className="relative flex size-3 shrink-0">
+                        <span
+                            className={`absolute inline-flex h-full w-full animate-ping rounded-full opacity-75 ${dotColor}`}
+                        />
+                        <span
+                            className={`relative inline-flex size-3 rounded-full ${dotColor}`}
+                        />
                     </span>
-                    <p>{error}</p>
+
+                    <p>{message}</p>
 
                     <button
                         type="button"
-                        onClick={() => setError("")}
+                        onClick={() => {
+                            setError("");
+                            setHint("");
+                        }}
                         aria-label="Dismiss message"
                         title="Dismiss"
                         className="pamp-music-dismiss"

@@ -161,6 +161,13 @@
     flex: 1;
 }
 
+.pamp-music-glyph {
+    width: 1.0625rem;
+    height: 1.0625rem;
+    color: rgba(22, 22, 26, 0.55);
+    transition: color 0.2s ease;
+}
+
 .pamp-music-dismiss {
     flex-shrink: 0;
     display: inline-flex;
