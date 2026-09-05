@@ -333,7 +333,7 @@ export default function HomePage() {
                             <figure className="mt-12 sm:mt-16">
                                 <div className="relative aspect-video overflow-hidden rounded-2xl bg-black sm:rounded-3xl">
                                     <iframe
-                                        src="https://www.youtube.com/embed/AS7i25he4NE?si=d3l7Xh2Z1IvH2ZLk"
+                                        src="https://www.youtube.com/embed/AbH97NFQKZ0?si=7Wu5p8gsS-InG8sg"
                                         title="Pampprod outdoor podcast"
                                         loading="lazy"
                                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
