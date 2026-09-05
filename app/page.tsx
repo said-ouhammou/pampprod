@@ -508,25 +508,41 @@ export default function HomePage() {
                                 <CarouselContent className="-ml-4 items-start sm:-ml-6">
                                     {[
                                         {
-                                            src: "/p.jpg",
+                                            src: "/wedding/1.jpg",
                                             alt: "Wedding photograph 1",
                                         },
                                         {
-                                            src: "/1p.jpg",
+                                            src: "/wedding/2.jpg",
                                             alt: "Wedding photograph 2",
                                         },
                                         {
-                                            src: "/p.jpg",
+                                            src: "/wedding/3.jpg",
                                             alt: "Wedding photograph 3",
                                         },
                                         {
-                                            src: "/1p.jpg",
+                                            src: "/wedding/4.jpg",
+                                            alt: "Wedding photograph 4",
+                                        },
+                                        {
+                                            src: "/wedding/5.jpg",
+                                            alt: "Wedding photograph 1",
+                                        },
+                                        {
+                                            src: "/wedding/6.jpg",
+                                            alt: "Wedding photograph 2",
+                                        },
+                                        {
+                                            src: "/wedding/7.jpg",
+                                            alt: "Wedding photograph 3",
+                                        },
+                                        {
+                                            src: "/wedding/8.jpg",
                                             alt: "Wedding photograph 4",
                                         },
                                     ].map((photo, index) => (
                                         <CarouselItem
                                             key={`${photo.src}-${index}`}
-                                            className="basis-full pl-4 md:basis-1/2 sm:pl-6"
+                                            className="basis-full pl-4 md:basis-1/3 sm:pl-6"
                                         >
                                             <div className="overflow-hidden rounded-2xl">
                                                 {/* Replace these paths with your wedding photos. */}
@@ -536,7 +552,7 @@ export default function HomePage() {
                                                     alt={photo.alt}
                                                     loading="lazy"
                                                     decoding="async"
-                                                    className="block h-auto w-full"
+                                                    className="block object-cover h-[500px] w-full"
                                                 />
                                             </div>
                                         </CarouselItem>
