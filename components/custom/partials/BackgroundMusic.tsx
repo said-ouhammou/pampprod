@@ -3,12 +3,7 @@ import "./BackgroundMusic.css";
 
 import {useEffect, useRef, useState} from "react";
 
-const UNLOCK_EVENTS = [
-    "pointerdown",
-    "keydown",
-    "touchstart",
-    "scroll",
-] as const;
+const UNLOCK_EVENTS = ["pointerdown", "keydown", "touchstart"] as const;
 
 export default function BackgroundMusic() {
     const audioRef = useRef<HTMLAudioElement>(null);
@@ -135,7 +130,6 @@ export default function BackgroundMusic() {
                 ref={audioRef}
                 src="/bg-audio.m4a"
                 loop
-                autoPlay
                 playsInline
                 preload="auto"
                 onPlay={() => setIsPaused(false)}
@@ -155,7 +149,7 @@ export default function BackgroundMusic() {
                     setIsPlaying(false);
 
                     setError(
-                        `The audio file did not load (code ${mediaError?.code ?? "unknown"}). Check /audio.mp4 and its format.`,
+                        `The audio file did not load (code ${mediaError?.code ?? "unknown"}). Check /audio.m4a and its format.`,
                     );
                 }}
             />

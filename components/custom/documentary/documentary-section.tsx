@@ -1,10 +1,11 @@
-import DocumenteryVideoSlider from "./DocumenteryVideoSlider";
+import DocumentaryVideoSlider from "./DocumentaryVideoSlider";
 
-export default function DocumenterySection() {
+export default function DocumentarySection() {
     return (
         <section
             aria-labelledby="documentary-heading"
             className="overflow-hidden animate-text"
+            id="documentary-section"
         >
             <div className="rotated w-full bg-[#F3F1EB] py-16 font-sans text-neutral-950 sm:py-24 lg:py-32">
                 <div className="mx-auto max-w-[1440px] px-5 sm:px-8 lg:px-12">
@@ -165,7 +166,7 @@ export default function DocumenterySection() {
                             </a>
                         </div>
                     </div>
-                    <DocumenteryVideoSlider />
+                    <DocumentaryVideoSlider />
 
                     <div className="mt-10 flex flex-col gap-6 rounded-2xl p-6 sm:flex-row sm:items-center sm:justify-between sm:p-8">
                         <div className="max-w-xl">

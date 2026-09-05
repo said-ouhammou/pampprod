@@ -189,7 +189,7 @@ export default function ReviewsSection() {
                         </CarouselContent>
                     </Carousel>
 
-                    {/* <PartnersSection /> */}
+                    <PartnersSection />
                 </div>
             </div>
         </section>

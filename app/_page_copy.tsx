@@ -1,7 +1,12 @@
 "use client";
 
+import gsap from "gsap";
+import {ScrollTrigger} from "gsap/ScrollTrigger";
+import {useGSAP} from "@gsap/react";
 import {useRef} from "react";
+import SelectedWorkSlider from "@/components/custom/partials/SelectedWorkSlider";
 import Link from "next/link";
+import VideoSlider from "@/components/custom/partials/VideoSlider";
 import {
     Carousel,
     CarouselContent,
@@ -9,21 +14,142 @@ import {
     CarouselNext,
     CarouselPrevious,
 } from "@/components/ui/carousel";
-
-import {useSectionScrollAnimation} from "@/hooks/useSectionScrollAnimation";
-
-import SelectedWorkSlider from "@/components/custom/partials/SelectedWorkSlider";
-import VideoSlider from "@/components/custom/partials/VideoSlider";
 import BackgroundMusic from "@/components/custom/partials/BackgroundMusic";
 import HeroSection from "@/components/custom/home/hero-section";
 import DocumentarySection from "@/components/custom/documentary/documentary-section";
 import ReviewsSection from "@/components/custom/home/reviews-section";
 
+gsap.registerPlugin(ScrollTrigger, useGSAP);
+
 export default function HomePage() {
-    const containerRef = useRef<HTMLElement | null>(null);
+    const containerRef = useRef<HTMLElement>(null);
+    // const textMedia = gsap.matchMedia();
 
-    useSectionScrollAnimation(containerRef);
+    useGSAP(
+        () => {
+            const root = containerRef.current;
+            if (!root) return;
 
+            const sections = Array.from(
+                root.querySelectorAll<HTMLElement>(":scope > section"),
+            );
+
+            const observedContent: HTMLElement[] = [];
+
+            sections.forEach((section, index) => {
+                const content =
+                    section.querySelector<HTMLElement>(":scope > .rotated");
+
+                if (content) {
+                    observedContent.push(content);
+
+                    gsap.to(content, {
+                        rotation: 0,
+                        ease: "none",
+                        scrollTrigger: {
+                            trigger: section,
+                            start: "top bottom",
+                            end: "top 20%",
+                            scrub: true,
+                        },
+                    });
+                }
+
+                if (index === sections.length - 1) return;
+
+                ScrollTrigger.create({
+                    trigger: section,
+                    start: "bottom bottom",
+                    end: "bottom top",
+                    pin: true,
+                    pinSpacing: false,
+                    invalidateOnRefresh: true,
+                });
+            });
+
+            // textMedia.add("(prefers-reduced-motion: no-preference)", () => {
+            //     const textSections =
+            //         root.querySelectorAll<HTMLElement>(".animate-text");
+
+            //     textSections.forEach((textSection) => {
+            //         // Only use pinnedContainer when this section is actually pinned.
+            //         const pinnedContainer = ScrollTrigger.getAll().some(
+            //             (trigger) => trigger.pin === textSection,
+            //         )
+            //             ? textSection
+            //             : undefined;
+
+            //         textSection
+            //             .querySelectorAll<HTMLElement>(
+            //                 "[data-animated-heading]",
+            //             )
+            //             .forEach((heading) => {
+            //                 const lines = heading.querySelectorAll<HTMLElement>(
+            //                     "[data-heading-line]",
+            //                 );
+
+            //                 if (!lines.length) return;
+
+            //                 gsap.from(lines, {
+            //                     yPercent: 110,
+            //                     opacity: 0,
+            //                     duration: 1,
+            //                     stagger: 0.15,
+            //                     ease: "power3.out",
+            //                     scrollTrigger: {
+            //                         trigger: heading,
+            //                         pinnedContainer,
+            //                         start: "top 90%",
+            //                         end: "bottom top",
+            //                         toggleActions: "play reverse play reverse",
+            //                     },
+            //                 });
+            //             });
+
+            //         textSection
+            //             .querySelectorAll<HTMLElement>("[data-text-reveal]")
+            //             .forEach((element) => {
+            //                 gsap.from(element, {
+            //                     y: 10,
+            //                     opacity: 0,
+            //                     duration: 0.6,
+            //                     ease: "power3.out",
+            //                     scrollTrigger: {
+            //                         trigger: element,
+            //                         pinnedContainer,
+            //                         start: "top 60%",
+            //                         end: "bottom top",
+            //                         toggleActions: "play reverse play reverse",
+            //                     },
+            //                 });
+            //             });
+            //     });
+            // });
+
+            let refreshTimer: ReturnType<typeof setTimeout> | undefined;
+
+            const observer = new ResizeObserver(() => {
+                clearTimeout(refreshTimer);
+
+                // Wait until the expanding/collapsing content settles.
+                refreshTimer = setTimeout(() => {
+                    ScrollTrigger.refresh();
+                }, 100);
+            });
+
+            // Observe natural content height, not GSAP's pinned wrappers.
+            observedContent.forEach((content) => {
+                observer.observe(content);
+            });
+
+            return () => {
+                observer.disconnect();
+                clearTimeout(refreshTimer);
+                // textMedia.revert();
+            };
+        },
+        {scope: containerRef},
+    );
     return (
         <>
             <BackgroundMusic />
@@ -47,7 +173,7 @@ export default function HomePage() {
 
                                     <h2
                                         data-animated-heading
-                                        id="heading"
+                                        id="experience-heading"
                                         className="max-w-3xl text-[clamp(3rem,6.5vw,6.5rem)] font-semibold leading-[0.95] tracking-[-0.055em] text-[#ff3b3c]"
                                     >
                                         <span className="block overflow-hidden pb-[0.12em]">

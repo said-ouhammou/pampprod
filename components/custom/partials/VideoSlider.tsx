@@ -11,6 +11,7 @@ import {
 } from "@/components/ui/carousel";
 
 type Film = {
+    id: string;
     url: string;
     title: string;
     category: string;
@@ -19,6 +20,7 @@ type Film = {
 
 const films: Film[] = [
     {
+        id: "1",
         url: "https://www.youtube.com/watch?v=AOzxWwCCdXU",
         title: "Your first film",
         category: "Brand film",
@@ -26,6 +28,7 @@ const films: Film[] = [
             " Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium vitae, ducimus eligendi nam nostrum expedita soluta ut reiciendis rerum corrupti maxime, laudantium alias sed, commodi inventore quae ad tenetur! Atque?",
     },
     {
+        id: "2",
         url: "https://www.youtube.com/watch?v=FtukH_bCDHg",
         title: "Your second film",
         category: "Event film",
@@ -33,6 +36,7 @@ const films: Film[] = [
             " Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium vitae, ducimus eligendi nam nostrum expedita soluta ut reiciendis rerum corrupti maxime, laudantium alias sed, commodi inventore quae ad tenetur! Atque?",
     },
     {
+        id: "3",
         url: "https://www.youtube.com/watch?v=sdhh7AYzsTY",
         title: "Your third film",
         category: "Visual story",
@@ -40,6 +44,7 @@ const films: Film[] = [
             " Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium vitae, ducimus eligendi nam nostrum expedita soluta ut reiciendis rerum corrupti maxime, laudantium alias sed, commodi inventore quae ad tenetur! Atque?",
     },
     {
+        id: "4",
         url: "https://www.youtube.com/watch?v=AOzxWwCCdXU",
         title: "Your first film",
         category: "Brand film",
@@ -47,6 +52,7 @@ const films: Film[] = [
             " Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium vitae, ducimus eligendi nam nostrum expedita soluta ut reiciendis rerum corrupti maxime, laudantium alias sed, commodi inventore quae ad tenetur! Atque?",
     },
     {
+        id: "5",
         url: "https://www.youtube.com/watch?v=FtukH_bCDHg",
         title: "Your second film",
         category: "Event film",
@@ -54,6 +60,7 @@ const films: Film[] = [
             " Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium vitae, ducimus eligendi nam nostrum expedita soluta ut reiciendis rerum corrupti maxime, laudantium alias sed, commodi inventore quae ad tenetur! Atque?",
     },
     {
+        id: "6",
         url: "https://www.youtube.com/watch?v=sdhh7AYzsTY",
         title: "Your third film",
         category: "Visual story",
@@ -156,7 +163,7 @@ export default function VideoSlider() {
 
                     return (
                         <CarouselItem
-                            key={film.url}
+                            key={film.id}
                             className="basis-full pl-5 md:basis-1/2 lg:basis-1/3"
                         >
                             <figure

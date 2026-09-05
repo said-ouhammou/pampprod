@@ -77,7 +77,7 @@ export default function HeroSection() {
                         </p>
 
                         <a
-                            href="#portfolio"
+                            href="#documentery-section"
                             className="
                         group inline-flex min-h-14 w-fit items-center gap-6
                         rounded-full bg-white py-2 pl-6 pr-2
